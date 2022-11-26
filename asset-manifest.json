@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fcc-scatterplot/static/css/main.e6c13ad2.css",
+    "main.js": "/fcc-scatterplot/static/js/main.b952f701.js",
+    "static/js/787.3a82ec61.chunk.js": "/fcc-scatterplot/static/js/787.3a82ec61.chunk.js",
+    "index.html": "/fcc-scatterplot/index.html",
+    "main.e6c13ad2.css.map": "/fcc-scatterplot/static/css/main.e6c13ad2.css.map",
+    "main.b952f701.js.map": "/fcc-scatterplot/static/js/main.b952f701.js.map",
+    "787.3a82ec61.chunk.js.map": "/fcc-scatterplot/static/js/787.3a82ec61.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.b952f701.js"
+  ]
+}
