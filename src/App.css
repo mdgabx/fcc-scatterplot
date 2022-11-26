@@ -2,7 +2,7 @@
 :root {
   --unset-padding: 0;
   --unset-margin: 0;
-  --shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   --borderRadius: 16px;
   --containerPadding: 0.7em 1.4em;
 }
