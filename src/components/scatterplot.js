@@ -1,6 +1,15 @@
-const ScatterPlot = () => {
+const ScatterPlot = (props) => {
+    const dataset = props.scatterData;
+
+    console.log('DATASET', dataset);
+
     return ( 
-        <h1>Hello World</h1>
+        <main>
+            <div className="container"> 
+                <h1>Doping Data</h1>
+            </div>
+        </main>
+       
      );
 }
  
