@@ -33,12 +33,14 @@ const ScatterPlot = (props) => {
 
         svg.append('g')
             .attr("transform", "translate(0," + (h - padding) + ")")
-            .attr("id", "x-axis")    
+            .attr("id", "x-axis")
+            .style('font-family', 'Consolas')
             .call(xAxis);
 
         svg.append('g')
             .attr("transform", "translate(" + (padding) + ", 0)")
             .attr("id", "y-axis")
+            .style('font-family', 'Consolas')
             .call(yAxis);
 
         svg.selectAll('circle')
@@ -47,6 +49,7 @@ const ScatterPlot = (props) => {
             .append('circle')
             .attr('class', 'dot')
             .attr('r', '5')
+            .style('font-family', 'Consolas')
             .attr("data-xvalue", (d) => d.Year)
             .attr("data-yvalue", (d) => new Date(d["Seconds"] * 1000))
             .attr("cx", (d) => xAxisScale(d.Year))
@@ -59,14 +62,23 @@ const ScatterPlot = (props) => {
                 }
             })
             .on('mouseover', (event, d) => {
+                tooltip.transition()
+                        .style('visibility', 'visible')
 
-            });
+                tooltip.text(`${d.Name} - ${d.Time}  ${d.Doping}`)
+                        .attr('data-year', d.Year)
+                
+                
+            })
+            .on('mouseout', (event, d) => {
+                tooltip.transition()
+                        .style('visibility', 'hidden');
+            })
 
 
             let tooltip = d3.select('.chart')
-                         .append('div')
-                         .attr('id', 'tooltip')
-                         .style('visibility', 'hidden')
+                        .append('div')
+                        .attr('id', 'tooltip')                        
     }
 
     return ( 
@@ -75,8 +87,8 @@ const ScatterPlot = (props) => {
                 <h1 id="title">Doping in Professional Bicycle Racing</h1>
                 <div className="chart"></div>
                 <div id="legend">
-                Red = Doping Allegation
-                Green = No Doping Allegation
+                    <p>Red = Doping Allegation</p>
+                    <p>Green = No Doping Allegation</p>
                 </div>
             </div>
         </main>

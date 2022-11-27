@@ -11,6 +11,7 @@
 body {
   padding: var(--unset-padding);
   margin: var(--unset-margin);
+  font-family: Consolas;
 }
 
 main {
@@ -27,8 +28,25 @@ main {
   border-radius: var(--borderRadius);
   background: #fff;
   padding: var(--containerPadding);
+  position: relative;
 }
 
 #title {
   text-align: center;
+}
+
+#tooltip {
+  visibility: hidden;
+  padding: 0.8em;
+  color: #fff;
+  position: absolute;
+  background: rgba(0,0,0,0.9);
+  z-index: 100;
+  border-radius: var(--borderRadius);
+  top: 15%;
+  left: 50%;  
+}
+
+#legend * {
+  font-size: 16px;
 }
