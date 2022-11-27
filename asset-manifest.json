@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fcc-scatterplot/static/css/main.13bffb8a.css",
-    "main.js": "/fcc-scatterplot/static/js/main.22138613.js",
+    "main.css": "/fcc-scatterplot/static/css/main.47d1bd6d.css",
+    "main.js": "/fcc-scatterplot/static/js/main.bc46b325.js",
     "static/js/787.3a82ec61.chunk.js": "/fcc-scatterplot/static/js/787.3a82ec61.chunk.js",
     "index.html": "/fcc-scatterplot/index.html",
-    "main.13bffb8a.css.map": "/fcc-scatterplot/static/css/main.13bffb8a.css.map",
-    "main.22138613.js.map": "/fcc-scatterplot/static/js/main.22138613.js.map",
+    "main.47d1bd6d.css.map": "/fcc-scatterplot/static/css/main.47d1bd6d.css.map",
+    "main.bc46b325.js.map": "/fcc-scatterplot/static/js/main.bc46b325.js.map",
     "787.3a82ec61.chunk.js.map": "/fcc-scatterplot/static/js/787.3a82ec61.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.13bffb8a.css",
-    "static/js/main.22138613.js"
+    "static/css/main.47d1bd6d.css",
+    "static/js/main.bc46b325.js"
   ]
 }
