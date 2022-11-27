@@ -28,3 +28,7 @@ main {
   background: #fff;
   padding: var(--containerPadding);
 }
+
+#title {
+  text-align: center;
+}
