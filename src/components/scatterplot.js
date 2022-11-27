@@ -18,22 +18,18 @@ const ScatterPlot = (props) => {
 
     if(dataset !== undefined && dataset !== null){
      
-        //  const heightScale = d3.scaleLinear()
-        //                 // .domain([0, d3.max(dataset, (d) => d.Time)])
-        //                 .range([0, h - 2 * padding])
-
         const yAxisScale = d3.scaleTime()
-                            // .domain([0, d3.max(dataset, (d) => d.Time)])
+                            .domain([d3.min(dataset, (d) => new Date(d.Seconds * 1000)), d3.max(dataset, (d) => new Date(d.Seconds * 1000))])
                             .range([padding, h - padding])
         
        
 
         const xAxisScale = d3.scaleLinear()
-                                // .domain([0, d3.max(dataset, (d) => d.Year)])
+                                .domain([d3.min(dataset, (d) => d.Year) - 1, d3.max(dataset, (d) => d.Year) + 1])
                                 .range([padding, w-padding])
         
-        const xAxis = d3.axisBottom(xAxisScale);
-        const yAxis = d3.axisLeft(yAxisScale);
+        const xAxis = d3.axisBottom(xAxisScale).tickFormat(d3.format('d'));
+        const yAxis = d3.axisLeft(yAxisScale).tickFormat(d3.timeFormat('%M:%S'));
 
         svg.append('g')
             .attr("transform", "translate(0," + (h - padding) + ")")
@@ -45,7 +41,7 @@ const ScatterPlot = (props) => {
             .attr("id", "y-axis")
             .call(yAxis);
 
-        d3.selectAll('circle')
+        svg.selectAll('circle')
             .data(dataset)
             .enter()
             .append('circle')
@@ -53,19 +49,35 @@ const ScatterPlot = (props) => {
             .attr('r', '5')
             .attr("data-xvalue", (d) => d.Year)
             .attr("data-yvalue", (d) => new Date(d["Seconds"] * 1000))
+            .attr("cx", (d) => xAxisScale(d.Year))
+            .attr("cy", (d) => yAxisScale(new Date(d.Seconds * 1000)))
+            .attr("fill", (d) => {
+                if(d.Doping !== '') {
+                    return 'green'
+                } else {
+                    return 'red'
+                }
+            })
+            .on('mouseover', (event, d) => {
+
+            });
+
+
+            let tooltip = d3.select('.chart')
+                         .append('div')
+                         .attr('id', 'tooltip')
+                         .style('visibility', 'hidden')
     }
-
-   
-
-    
-
-
 
     return ( 
         <main>
             <div className="container"> 
                 <h1 id="title">Doping in Professional Bicycle Racing</h1>
                 <div className="chart"></div>
+                <div id="legend">
+                Red = Doping Allegation
+                Green = No Doping Allegation
+                </div>
             </div>
         </main>
        
